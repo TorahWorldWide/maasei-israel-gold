@@ -101,6 +101,16 @@ export default function Slideshow({
               className="absolute inset-0 w-full h-full border-0"
             />
           </div>
+        ) : entry.media_url && entry.media_type === "video_upload" ? (
+          <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-black ring-1 ring-[rgba(212,175,55,0.18)]">
+            <video
+              src={entry.media_url}
+              controls
+              autoPlay
+              playsInline
+              className="absolute inset-0 w-full h-full object-contain"
+            />
+          </div>
         ) : entry.media_url && entry.media_type === "image" ? (
           <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-black ring-1 ring-[rgba(212,175,55,0.18)]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
