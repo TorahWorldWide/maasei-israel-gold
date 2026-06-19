@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Rubik, Heebo } from "next/font/google";
+import { Frank_Ruhl_Libre, Heebo } from "next/font/google";
 import "./globals.css";
 
-const rubik = Rubik({
-  variable: "--font-rubik",
+const frankRuhlLibre = Frank_Ruhl_Libre({
+  variable: "--font-frank-ruhl",
   subsets: ["latin", "hebrew"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "700", "900"],
   display: "swap",
 });
 
@@ -31,7 +31,7 @@ export default function RootLayout({
     <html
       lang="he"
       dir="rtl"
-      className={`${rubik.variable} ${heebo.variable}`}
+      className={`${frankRuhlLibre.variable} ${heebo.variable}`}
     >
       <body className="min-h-screen flex flex-col">{children}</body>
     </html>

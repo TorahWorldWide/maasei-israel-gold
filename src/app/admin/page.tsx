@@ -44,22 +44,22 @@ function AdminLogin({
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col">
-      <header className="bg-blue-900 text-white">
+    <div className="min-h-screen bg-[#0a0a0a] flex flex-col">
+      <header className="bg-[#0a0a0a] border-b border-[rgba(212,175,55,0.2)] text-[#f5f0e6]">
         <div className="max-w-md mx-auto px-4 py-4 flex items-center gap-3">
-          <Link href="/" className="text-white/60 hover:text-white/90 text-sm">← חזרה</Link>
-          <span className="text-white/30">|</span>
-          <h1 className="text-lg font-bold">כניסת מנהל</h1>
+          <Link href="/" className="text-[#f5f0e6]/38 hover:text-[#f5f0e6]/75 text-sm">← חזרה</Link>
+          <span className="text-[rgba(212,175,55,0.2)]">|</span>
+          <h1 className="text-lg font-bold text-[#d4af37]">כניסת מנהל</h1>
         </div>
       </header>
       <main className="flex-1 flex items-center justify-center p-6">
         <form
           onSubmit={handleSubmit}
-          className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 w-full max-w-sm flex flex-col gap-5"
+          className="bg-[#161616] rounded-2xl p-8 border border-[rgba(212,175,55,0.18)] w-full max-w-sm flex flex-col gap-5"
         >
-          <h2 className="text-xl font-bold text-slate-900">כניסת מנהל</h2>
+          <h2 className="text-xl font-bold text-[#d4af37]">כניסת מנהל</h2>
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1.5">
+            <label className="block text-sm font-medium text-[#f5f0e6]/65 mb-1.5">
               סיסמה
             </label>
             <input
@@ -67,19 +67,19 @@ function AdminLogin({
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="הזן סיסמת מנהל"
-              className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-400 transition-shadow"
+              className="w-full px-4 py-2.5 rounded-xl border border-[rgba(212,175,55,0.28)] text-sm bg-[#0f0f0f] text-[#f5f0e6] focus:outline-none focus:ring-2 focus:ring-[rgba(212,175,55,0.22)] focus:border-[rgba(212,175,55,0.65)] transition-shadow"
               autoFocus
             />
           </div>
           {error && (
-            <p className="text-red-600 text-sm bg-red-50 border border-red-200 px-4 py-2.5 rounded-xl">
+            <p className="text-red-400 text-sm bg-red-900/15 border border-red-700/25 px-4 py-2.5 rounded-xl">
               {error}
             </p>
           )}
           <button
             type="submit"
             disabled={loading || !input}
-            className="bg-blue-800 text-white font-bold py-2.5 rounded-xl hover:bg-blue-900 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+            className="bg-[#d4af37] text-[#0a0a0a] font-bold py-2.5 rounded-xl hover:bg-[#f0d98c] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
           >
             {loading ? "מתחבר..." : "כניסה"}
           </button>
@@ -118,27 +118,27 @@ function SubmissionRow({
   };
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5 flex flex-col gap-3">
+    <div className="bg-[#161616] rounded-2xl border border-[rgba(212,175,55,0.18)] p-5 flex flex-col gap-3">
       <div className="flex items-start gap-3 flex-wrap">
-        <span className="text-xs bg-blue-100 text-blue-800 px-2.5 py-0.5 rounded-full font-medium">
+        <span className="text-xs bg-[rgba(212,175,55,0.12)] text-[#d4af37] border border-[rgba(212,175,55,0.3)] px-2.5 py-0.5 rounded-full font-medium">
           {entry.category}
         </span>
         {entry.year && (
-          <span className="text-xs text-slate-400">{entry.year}</span>
+          <span className="text-xs text-[#f5f0e6]/28">{entry.year}</span>
         )}
-        <span className="text-xs text-slate-400 mr-auto">
+        <span className="text-xs text-[#f5f0e6]/22 mr-auto">
           {new Date(entry.created_at).toLocaleDateString("he-IL")}
         </span>
       </div>
 
-      <h3 className="text-lg font-bold text-slate-900">{entry.title}</h3>
-      <p className="text-sm text-slate-600 leading-relaxed">{entry.description}</p>
+      <h3 className="text-lg font-bold text-[#d4af37]">{entry.title}</h3>
+      <p className="text-sm text-[#f5f0e6]/60 leading-relaxed">{entry.description}</p>
 
       <a
         href={entry.source_url}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-sm text-blue-700 hover:text-blue-900 underline underline-offset-2 flex items-center gap-1"
+        className="text-sm text-[#d4af37]/65 hover:text-[#d4af37] underline underline-offset-2 flex items-center gap-1"
       >
         <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -147,21 +147,21 @@ function SubmissionRow({
       </a>
 
       {entry.submitted_by && (
-        <p className="text-xs text-slate-400">הוגש על-ידי: {entry.submitted_by}</p>
+        <p className="text-xs text-[#f5f0e6]/22">הוגש על-ידי: {entry.submitted_by}</p>
       )}
 
       <div className="flex gap-3 pt-1">
         <button
           onClick={() => act("approve")}
           disabled={busy !== null}
-          className="flex-1 bg-green-600 hover:bg-green-700 text-white font-semibold py-2 rounded-xl text-sm transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+          className="flex-1 bg-green-800 hover:bg-green-700 text-white font-semibold py-2 rounded-xl text-sm transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
         >
           {busy === "approve" ? "מאשר..." : "✓ אישור"}
         </button>
         <button
           onClick={() => act("reject")}
           disabled={busy !== null}
-          className="flex-1 bg-red-100 hover:bg-red-200 text-red-700 font-semibold py-2 rounded-xl text-sm transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+          className="flex-1 bg-red-900/35 hover:bg-red-900/55 text-red-400 font-semibold py-2 rounded-xl text-sm transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
         >
           {busy === "reject" ? "דוחה..." : "✕ דחייה"}
         </button>
@@ -196,21 +196,22 @@ function AdminQueue({ password }: { password: string }) {
   }, [password]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     load();
   }, [load]);
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col">
-      <header className="bg-blue-900 text-white sticky top-0 z-40 shadow-md">
+    <div className="min-h-screen bg-[#0a0a0a] flex flex-col">
+      <header className="bg-[#0a0a0a] border-b border-[rgba(212,175,55,0.2)] text-[#f5f0e6] sticky top-0 z-40 shadow-[0_2px_20px_rgba(0,0,0,0.6)]">
         <div className="max-w-3xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <Link href="/" className="text-white/60 hover:text-white/90 text-sm">← חזרה</Link>
-            <span className="text-white/30">|</span>
-            <h1 className="text-lg font-bold">ניהול הגשות</h1>
+            <Link href="/" className="text-[#f5f0e6]/38 hover:text-[#f5f0e6]/75 text-sm">← חזרה</Link>
+            <span className="text-[rgba(212,175,55,0.2)]">|</span>
+            <h1 className="text-lg font-bold text-[#d4af37]">ניהול הגשות</h1>
           </div>
           <button
             onClick={load}
-            className="text-white/60 hover:text-white/90 text-sm flex items-center gap-1"
+            className="text-[#d4af37]/48 hover:text-[#d4af37] text-sm flex items-center gap-1"
             title="רענן"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -223,33 +224,33 @@ function AdminQueue({ password }: { password: string }) {
 
       <main className="flex-1 max-w-3xl mx-auto w-full px-4 py-10">
         {loading && (
-          <div className="text-center py-16 text-slate-400">
+          <div className="text-center py-16 text-[#f5f0e6]/28">
             <p>טוען הגשות...</p>
           </div>
         )}
 
         {error && (
-          <div className="bg-red-50 border border-red-200 text-red-700 px-5 py-4 rounded-xl mb-6">
+          <div className="bg-red-900/15 border border-red-700/25 text-red-400 px-5 py-4 rounded-xl mb-6">
             {error}
           </div>
         )}
 
         {data && !data.configured && (
-          <div className="bg-amber-50 border border-amber-200 text-amber-800 px-5 py-4 rounded-xl text-sm">
+          <div className="bg-[rgba(180,120,0,0.1)] border border-amber-700/25 text-amber-400/75 px-5 py-4 rounded-xl text-sm">
             <p className="font-semibold">Supabase אינו מוגדר.</p>
             <p className="mt-1">יש להגדיר את משתני הסביבה NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY ו-SUPABASE_SERVICE_ROLE_KEY להפעלת תור ההגשות.</p>
           </div>
         )}
 
         {data && data.configured && data.entries.length === 0 && (
-          <div className="text-center py-16 text-slate-400">
+          <div className="text-center py-16 text-[#f5f0e6]/28">
             <p className="text-lg">אין הגשות ממתינות לאישור.</p>
           </div>
         )}
 
         {data && data.configured && data.entries.length > 0 && (
           <div className="flex flex-col gap-6">
-            <p className="text-sm text-slate-500">
+            <p className="text-sm text-[#f5f0e6]/32">
               {data.entries.length} הגשות ממתינות לאישור
             </p>
             {data.entries.map((entry) => (

@@ -48,10 +48,10 @@ function validate(form: FormState): Record<string, string> {
 }
 
 const inputCls = (err?: string) =>
-  `w-full px-4 py-2.5 rounded-xl border text-sm text-slate-800 bg-white focus:outline-none focus:ring-2 transition-shadow ${
+  `w-full px-4 py-2.5 rounded-xl border text-sm text-[#f5f0e6] bg-[#0f0f0f] focus:outline-none focus:ring-2 transition-shadow ${
     err
-      ? "border-red-400 focus:ring-red-200"
-      : "border-slate-200 focus:ring-blue-200 focus:border-blue-400"
+      ? "border-red-500/50 focus:ring-red-500/20"
+      : "border-[rgba(212,175,55,0.28)] focus:ring-[rgba(212,175,55,0.22)] focus:border-[rgba(212,175,55,0.65)]"
   }`;
 
 export default function SubmitPage() {
@@ -92,36 +92,36 @@ export default function SubmitPage() {
 
   if (status === "success") {
     return (
-      <div className="min-h-screen bg-slate-50 flex flex-col">
-        <header className="bg-blue-900 text-white">
+      <div className="min-h-screen bg-[#0a0a0a] flex flex-col">
+        <header className="bg-[#0a0a0a] border-b border-[rgba(212,175,55,0.2)] text-[#f5f0e6]">
           <div className="max-w-2xl mx-auto px-4 sm:px-6 py-4">
-            <Link href="/" className="text-xl font-bold">מעשי ישראל</Link>
+            <Link href="/" className="text-xl font-bold text-[#d4af37]">מעשי ישראל</Link>
           </div>
         </header>
         <main className="flex-1 flex items-center justify-center p-6">
-          <div className="bg-white rounded-2xl p-8 shadow-sm border border-green-100 text-center max-w-md w-full">
-            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className="bg-[#161616] rounded-2xl p-8 border border-[rgba(212,175,55,0.22)] text-center max-w-md w-full">
+            <div className="w-16 h-16 bg-[rgba(212,175,55,0.12)] rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg className="w-8 h-8 text-[#d4af37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h2 className="text-xl font-bold text-slate-900 mb-2">תודה!</h2>
-            <p className="text-slate-600">
+            <h2 className="text-xl font-bold text-[#d4af37] mb-2">תודה!</h2>
+            <p className="text-[#f5f0e6]/65">
               ההגשה נשלחה ותיבדק לפני פרסום.
             </p>
             {!persisted && (
-              <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 px-4 py-2.5 rounded-xl mt-4">
+              <p className="text-sm text-amber-400/75 bg-[rgba(180,120,0,0.12)] border border-amber-700/25 px-4 py-2.5 rounded-xl mt-4">
                 שימו לב: מסד הנתונים אינו מחובר עדיין. ההגשה תישמר לאחר חיבור Supabase.
               </p>
             )}
             <div className="flex gap-3 justify-center mt-6">
               <button
                 onClick={() => setStatus("idle")}
-                className="text-sm text-blue-700 hover:text-blue-900 underline"
+                className="text-sm text-[#d4af37]/65 hover:text-[#d4af37] underline"
               >
                 שלחו פריט נוסף
               </button>
-              <Link href="/" className="text-sm text-slate-500 hover:text-slate-700 underline">
+              <Link href="/" className="text-sm text-[#f5f0e6]/35 hover:text-[#f5f0e6]/65 underline">
                 חזרה לדף הבית
               </Link>
             </div>
@@ -132,34 +132,34 @@ export default function SubmitPage() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col">
-      <header className="bg-blue-900 text-white">
+    <div className="min-h-screen bg-[#0a0a0a] flex flex-col">
+      <header className="bg-[#0a0a0a] border-b border-[rgba(212,175,55,0.2)] text-[#f5f0e6]">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 py-4 flex items-center gap-3">
-          <Link href="/" className="text-white/60 hover:text-white/90 transition-colors text-sm">
+          <Link href="/" className="text-[#f5f0e6]/38 hover:text-[#f5f0e6]/75 transition-colors text-sm">
             ← חזרה
           </Link>
-          <span className="text-white/30">|</span>
-          <h1 className="text-lg font-bold">שלחו מעשה טוב</h1>
+          <span className="text-[rgba(212,175,55,0.2)]">|</span>
+          <h1 className="text-lg font-bold text-[#d4af37]">שלחו מעשה טוב</h1>
         </div>
       </header>
 
       <main className="flex-1 max-w-2xl mx-auto w-full px-4 sm:px-6 py-10">
         <form
           onSubmit={handleSubmit}
-          className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-100 flex flex-col gap-5"
+          className="bg-[#161616] rounded-2xl p-6 md:p-8 border border-[rgba(212,175,55,0.18)] flex flex-col gap-5"
           noValidate
         >
           <div>
-            <h2 className="text-2xl font-bold text-slate-900">הגשת מעשה טוב</h2>
-            <p className="text-sm text-slate-500 mt-1">
+            <h2 className="text-2xl font-bold text-[#d4af37]">הגשת מעשה טוב</h2>
+            <p className="text-sm text-[#f5f0e6]/42 mt-1">
               כל פריט חייב לכלול קישור מקור מאומת. ללא מקור — ההגשה לא תתקבל.
             </p>
           </div>
 
           {/* Title */}
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1.5">
-              שם הפריט <span className="text-red-500">*</span>
+            <label className="block text-sm font-medium text-[#f5f0e6]/65 mb-1.5">
+              שם הפריט <span className="text-red-400">*</span>
             </label>
             <input
               type="text"
@@ -169,14 +169,14 @@ export default function SubmitPage() {
               className={inputCls(errors.title)}
             />
             {errors.title && (
-              <p className="text-red-500 text-xs mt-1">{errors.title}</p>
+              <p className="text-red-400 text-xs mt-1">{errors.title}</p>
             )}
           </div>
 
           {/* Description */}
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1.5">
-              תיאור <span className="text-red-500">*</span>
+            <label className="block text-sm font-medium text-[#f5f0e6]/65 mb-1.5">
+              תיאור <span className="text-red-400">*</span>
             </label>
             <textarea
               value={form.description}
@@ -186,24 +186,24 @@ export default function SubmitPage() {
               className={inputCls(errors.description)}
             />
             {errors.description && (
-              <p className="text-red-500 text-xs mt-1">{errors.description}</p>
+              <p className="text-red-400 text-xs mt-1">{errors.description}</p>
             )}
           </div>
 
           {/* Category + Year */}
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">
-                קטגוריה <span className="text-red-500">*</span>
+              <label className="block text-sm font-medium text-[#f5f0e6]/65 mb-1.5">
+                קטגוריה <span className="text-red-400">*</span>
               </label>
               <select value={form.category} onChange={set("category")} className={inputCls()}>
                 {CATEGORIES.map((c) => (
-                  <option key={c} value={c}>{c}</option>
+                  <option key={c} value={c} style={{ backgroundColor: "#161616" }}>{c}</option>
                 ))}
               </select>
             </div>
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">
+              <label className="block text-sm font-medium text-[#f5f0e6]/65 mb-1.5">
                 שנה (אופציונלי)
               </label>
               <input
@@ -219,16 +219,16 @@ export default function SubmitPage() {
           </div>
 
           {/* Source — highlighted as required */}
-          <div className="rounded-xl border border-blue-200 bg-blue-50/60 p-4 flex flex-col gap-3">
-            <p className="text-sm font-semibold text-blue-800 flex items-center gap-1.5">
+          <div className="rounded-xl border border-[rgba(212,175,55,0.32)] bg-[rgba(212,175,55,0.04)] p-4 flex flex-col gap-3">
+            <p className="text-sm font-semibold text-[#d4af37] flex items-center gap-1.5">
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               מקור מאומת — חובה
             </p>
             <div>
-              <label className="block text-xs font-medium text-blue-700 mb-1">
-                קישור למקור <span className="text-red-500">*</span>
+              <label className="block text-xs font-medium text-[#d4af37]/65 mb-1">
+                קישור למקור <span className="text-red-400">*</span>
               </label>
               <input
                 type="url"
@@ -238,12 +238,12 @@ export default function SubmitPage() {
                 className={inputCls(errors.source_url)}
               />
               {errors.source_url && (
-                <p className="text-red-500 text-xs mt-1">{errors.source_url}</p>
+                <p className="text-red-400 text-xs mt-1">{errors.source_url}</p>
               )}
             </div>
             <div>
-              <label className="block text-xs font-medium text-blue-700 mb-1">
-                שם המקור <span className="text-red-500">*</span>
+              <label className="block text-xs font-medium text-[#d4af37]/65 mb-1">
+                שם המקור <span className="text-red-400">*</span>
               </label>
               <input
                 type="text"
@@ -253,25 +253,25 @@ export default function SubmitPage() {
                 className={inputCls(errors.source_label)}
               />
               {errors.source_label && (
-                <p className="text-red-500 text-xs mt-1">{errors.source_label}</p>
+                <p className="text-red-400 text-xs mt-1">{errors.source_label}</p>
               )}
             </div>
           </div>
 
           {/* Media */}
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1.5">
+            <label className="block text-sm font-medium text-[#f5f0e6]/65 mb-1.5">
               סוג מדיה
             </label>
             <select value={form.media_type} onChange={set("media_type")} className={inputCls()}>
               {MEDIA_TYPES.map((t) => (
-                <option key={t.value} value={t.value}>{t.label}</option>
+                <option key={t.value} value={t.value} style={{ backgroundColor: "#161616" }}>{t.label}</option>
               ))}
             </select>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1.5">
+            <label className="block text-sm font-medium text-[#f5f0e6]/65 mb-1.5">
               קישור למדיה (אופציונלי)
             </label>
             <input
@@ -285,7 +285,7 @@ export default function SubmitPage() {
 
           {/* Submitted by */}
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1.5">
+            <label className="block text-sm font-medium text-[#f5f0e6]/65 mb-1.5">
               שם לקרדיט (אופציונלי)
             </label>
             <input
@@ -298,7 +298,7 @@ export default function SubmitPage() {
           </div>
 
           {status === "error" && (
-            <p className="text-red-600 text-sm bg-red-50 border border-red-200 px-4 py-2.5 rounded-xl">
+            <p className="text-red-400 text-sm bg-red-900/15 border border-red-700/25 px-4 py-2.5 rounded-xl">
               אירעה שגיאה. אנא נסו שוב.
             </p>
           )}
@@ -306,7 +306,7 @@ export default function SubmitPage() {
           <button
             type="submit"
             disabled={status === "loading"}
-            className="bg-blue-800 text-white font-bold px-6 py-3 rounded-xl hover:bg-blue-900 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+            className="bg-[#d4af37] text-[#0a0a0a] font-bold px-6 py-3 rounded-xl hover:bg-[#f0d98c] transition-colors disabled:opacity-60 disabled:cursor-not-allowed shadow-[0_0_22px_rgba(212,175,55,0.18)]"
           >
             {status === "loading" ? "שולח..." : "שלח הגשה"}
           </button>
